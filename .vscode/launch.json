@@ -7,6 +7,20 @@
     "configurations": [
         {
             "type": "java",
+            "name": "CodeLens (Launch) - aaa",
+            "request": "launch",
+            "mainClass": "aaa",
+            "projectName": "LeetCode_Solution_810d2a67"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - ScannerDemo",
+            "request": "launch",
+            "mainClass": "ScannerDemo",
+            "projectName": "LeetCode_Solution_810d2a67"
+        },
+        {
+            "type": "java",
             "name": "CodeLens (Launch) - Solution",
             "request": "launch",
             "mainClass": "Solution"
