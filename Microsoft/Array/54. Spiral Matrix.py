@@ -17,7 +17,6 @@ class Solution:
                     re.append(matrix[r2][c])
                 for r in range(r2-1, r1, -1):
                     re.append(matrix[r][c1])
-                
             r1 += 1
             r2 -= 1
             c1 += 1
