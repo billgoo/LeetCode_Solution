@@ -14,7 +14,6 @@ class Solution:
             while f < l:
                 start, end = nums[f], nums[l]
                 if s == start + end:
-                    a = [-s, start, end]
                     re.append([nums[i], start, end])
                     while f < l and nums[f] == nums[f+1]:
                         f += 1
