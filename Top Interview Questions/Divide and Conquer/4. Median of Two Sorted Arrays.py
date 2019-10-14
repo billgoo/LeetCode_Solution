@@ -4,18 +4,17 @@ class Solution:
         if m < n:
             nums1, nums2, m, n = nums2, nums1, n, m
         
-        print(m, n, 9)
         if n == 0:
             if m % 2:
                 return nums1[m//2] * 1.0
             else:
                 return (nums1[m//2-1] + nums1[m//2]) / 2.0
         
+        # i and j are lower and upper bound of recurr on the longer list
         i, j, half = (m + n + 1) // 2 - n, (m + n + 1) // 2, (m + n + 1) // 2
         while i <= j:
             p1 = (i + j) // 2
             p2 = half - p1
-            print(p1, p2)
             if p2 < n and nums1[p1-1] > nums2[p2]:
                 j = p1 - 1
             elif p1 < half and nums1[p1] < nums2[p2-1]:
