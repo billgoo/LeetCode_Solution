@@ -1,10 +1,13 @@
 class Solution:
     def generateParenthesis(self, n: 'int') -> 'List[str]':
+        # by using BFS approach
         if not n:
             return []
         
         result = ["("]
         counter = [[n - 1, n]]
+
+        # bfs time 2^2n*n space 2^2n*n
         for i in range(2 * n):
             if len(result[0]) == 2 * n:
                 return result
