@@ -3,10 +3,11 @@ class Solution:
         """
         Do not return anything, modify nums in-place instead.
         """
-        p1, p2 = 0, 0
+        p1, p2 = 0, 0   # point to the first 1 and 2
         for i in range(len(nums)):
             if nums[i] == 0:
                 if p2 == i:
+                    # 2 is not occurred before i
                     nums[p1], nums[i] = nums[i], nums[p1]
                 else:
                     nums[p2], nums[p1], nums[i] = nums[p1], nums[i], nums[p2]

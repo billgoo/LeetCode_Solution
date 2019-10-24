@@ -13,16 +13,20 @@ class Solution:
         # i and j are lower and upper bound of recurr on the longer list
         i, j, half = (m + n + 1) // 2 - n, (m + n + 1) // 2, (m + n + 1) // 2
         while i <= j:
-            p1 = (i + j) // 2
-            p2 = half - p1
+            # sum of elements before p1 and before p2 is half
+            p1 = (i + j) // 2   # index of the whole median in longer list
+            p2 = half - p1  # index of the whole median in shorter list
             if p2 < n and nums1[p1-1] > nums2[p2]:
+                # p1 left p2 to right
                 j = p1 - 1
             elif p1 < half and nums1[p1] < nums2[p2-1]:
+                # p1 right p2 to left
                 i = p1 + 1
             else:
                 if p2 == 0:
                     left_max = nums1[p1-1]
                 elif p1 == 0:
+                    # m == n else it will not be used
                     left_max = nums2[p2-1]
                 else:
                     left_max = max(nums1[p1-1], nums2[p2-1])
