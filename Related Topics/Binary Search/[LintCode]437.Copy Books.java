@@ -6,7 +6,7 @@ Binary Search
 - O(nLogM). n = pages.length; m = sum of pages.
 因为是二分搜索，所以显然最终会收敛到一个恰好的值，具体的int数。因为大或小都会导致二分搜索继续下去
  */
-public class CopyBooks {  
+class CopyBooks {  
     /** 
      * @param pages: an array of books with pages number. 
      * @param k: number of copiers. 
