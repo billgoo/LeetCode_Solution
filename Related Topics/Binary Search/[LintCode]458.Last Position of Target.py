@@ -20,20 +20,20 @@ class Solution:
         if not A:
             return -1
     
-    l, r = 0, len(A) - 1
-    while l + 1 < r:
-        m = (l + r) // 2
-        if A[m] == target:
-            l = m
-        elif A[m] > target:
-            r = m - 1
-        else:
-            l = m + 1
+        l, r = 0, len(A) - 1
+        while l + 1 < r:
+            m = (l + r) // 2
+            if A[m] == target:
+                l = m
+            elif A[m] > target:
+                r = m - 1
+            else:
+                l = m + 1
 
-    if A[r] == target:
-        return r
-    elif A[l] == target:
-        return l
+        if A[r] == target:
+            return r
+        elif A[l] == target:
+            return l
 
-    return -1
+        return -1
 
