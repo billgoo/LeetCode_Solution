@@ -5,18 +5,26 @@
 #         self.next = None
 
 class Solution:
-    def hasCycle(self, head: ListNode) -> bool:
+    def detectCycle(self, head: ListNode) -> ListNode:
         if not head or not head.next:
             return None
-        # slow, fast = ListNode(0), ListNode(0)
+        
         slow = head
         fast = head.next
         
+        # find if we have cycle and get meet point
         while slow != fast:
             if not fast or not fast.next:
-                return False
+                return None
             slow = slow.next
             fast = fast.next.next
             
-        return True
-    
+        # slow from head and fast from meet point both at one step
+        slow = head
+        fast = fast.next
+        while slow != fast:
+            slow = slow.next
+            fast = fast.next
+            
+        return slow
+        
