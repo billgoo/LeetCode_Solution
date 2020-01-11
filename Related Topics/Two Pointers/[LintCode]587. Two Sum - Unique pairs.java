@@ -1,3 +1,5 @@
+import java.util.Arrays;
+
 /**
  * 描述
  * 
@@ -5,11 +7,9 @@
  * 
  * 样例
  * 
- * 给一数组 nums = [1,1,2,45,46,46], target = 47, 返回 2
- * 1 + 46 = 47
- * 2 + 45 = 47
+ * 给一数组 nums = [1,1,2,45,46,46], target = 47, 返回 2 1 + 46 = 47 2 + 45 = 47
  */
-public class Solution {
+class Solution {
     /*
      * @param nums: an array of integer
      * @param target: An integer
