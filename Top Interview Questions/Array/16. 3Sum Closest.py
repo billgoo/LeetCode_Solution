@@ -1,9 +1,8 @@
 class Solution:
     def threeSumClosest(self, nums: List[int], target: int) -> int:
         # O(n^2)
-        re = 2 ** 31
         nums.sort()
-        nums = [i for i in nums]
+        re = sum(nums[:3])
         
         for f in range(len(nums)):
             m, l = f + 1, len(nums) - 1
