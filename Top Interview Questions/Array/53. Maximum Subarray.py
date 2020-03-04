@@ -57,12 +57,16 @@ class Solution:
         """
         # greedy and dp from left and from right O_n time and O_n space
         n = len(nums)
-        max_sum = nums[0]
-
+        left_sum = nums[:]
+        right_sum = nums[:]
+        
         for i in range(1, n):
-            if nums[i-1] > 0:
-                nums[i] += nums[i-1]
-            max_sum = max(max_sum, nums[i])
-            
-        return max_sum
+            left_sum[i] = max(nums[i], left_sum[i-1] + nums[i])
+
+        # 多此一举
+        for i in range(n-2, -1, -1):
+            right_sum[i] = max(nums[i], right_sum[i+1] + nums[i])
+        
+        # 加号就是连接两个list的意思
+        return max(left_sum + right_sum)
         """
