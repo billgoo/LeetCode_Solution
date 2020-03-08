@@ -8,7 +8,7 @@
  */
 class Solution {
     public ListNode reverseList(ListNode head) {
-        // iteratively
+        // stack approach O_n time and O_n space
         if (head == null || head.next == null){
             return head;
         }
