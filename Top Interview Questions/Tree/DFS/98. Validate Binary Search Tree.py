@@ -7,6 +7,8 @@
 
 class Solution:
     def isValidBST(self, root: TreeNode) -> bool:
+        """
+        # DFS O_n time and O_n space
         if not root:
             return True
         
@@ -24,5 +26,24 @@ class Solution:
             stack.append((root.right, root.val, up))
 
         return True            
+        """
         
+        # in-order traverse O_n time and O_n space
+        stack = []
+        low = float('-inf')
         
+        while stack or root:
+            # go down to left
+            while root:
+                stack.append(root)
+                root = root.left
+
+            root = stack.pop()
+
+            if root.val <= low:
+                return False
+
+            low = root.val
+            root = root.right
+
+        return True
