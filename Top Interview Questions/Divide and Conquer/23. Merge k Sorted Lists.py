@@ -9,7 +9,7 @@ class Solution:
 
         l = len(lists)
         if l == 0:
-            return lists
+            return None
         elif l == 1:
             return lists[0]
         

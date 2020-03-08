@@ -1,13 +1,3 @@
-/*
-我也不知道为什么另一种写法
-用stack实现DFS但是老是报错
-还是用迭代吧
-求帮助另一种写法修改
-主要是写这个的时候LeetCode挂了不知道为什么这一题不能用run code debug
-只能不停submit
-所以就先舍弃这个然后move on了
-*/
-
 /**
  * Definition for singly-linked list with a random pointer.
  * class RandomListNode {
