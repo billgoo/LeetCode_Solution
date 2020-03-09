@@ -6,7 +6,8 @@
 #         self.right = None
 
 class Codec:
-
+    '''
+    # BFS according to index relationship
     def serialize(self, root):
         """Encodes a tree to a single string.
         
@@ -61,7 +62,66 @@ class Codec:
                 queue.append(node.right)
             position += 1
         return root
+    '''
+
+    # BFS using two queue
+    def serialize(self, root):
+        """Encodes a tree to a single string.
         
+        :type root: TreeNode
+        :rtype: str
+        """
+        if not root:
+            return "n"
+        
+        queue = [root]
+        re = ""
+        while queue and set(queue) != {None}:
+            node = queue.pop(0)
+            if node:
+                re += str(node.val) + ","
+                queue.append(node.left)
+                queue.append(node.right)
+            else:
+                re += "n,"
+        return re[:-1]
+        
+
+    def deserialize(self, data):
+        """Decodes your encoded data to tree.
+        
+        :type data: str
+        :rtype: TreeNode
+        """
+        if data == "":
+            return None
+        
+        l = data.split(",")
+        
+        val = l.pop(0)
+        if val == "n":
+            return None
+        
+        root = TreeNode(int(val))
+        queue = [root]
+        
+        while l:
+            node = queue.pop(0)
+            
+            left = right = None
+            if l:
+                left = l.pop(0)
+            if l:
+                right = l.pop(0)
+            
+            if left and left != "n":
+                node.left = TreeNode(int(left))
+                queue.append(node.left)
+            if right and right != "n":
+                node.right = TreeNode(int(right))
+                queue.append(node.right)
+                
+        return root
         
 
 # Your Codec object will be instantiated and called as such:
