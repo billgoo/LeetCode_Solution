@@ -4,11 +4,14 @@ class Solution:
         if n <= 1:
             return n
         
-        i = 0
-        for j in range(n):
-            if nums[j] != nums[i]:
-                i += 1
-                nums[j], nums[i] = nums[i], nums[j]
-        
-        return i + 1
-    
+        p1 = p2 = 0
+        while p2 < n:
+            if nums[p1] == nums[p2]:
+                p2 += 1
+            else:
+                if p1 < p2:
+                    p1 += 1
+                    nums[p1], nums[p2] = nums[p2], nums[p1]
+                    p2 += 1
+                    
+        return p1 + 1
