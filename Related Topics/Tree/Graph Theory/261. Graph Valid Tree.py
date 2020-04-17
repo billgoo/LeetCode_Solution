@@ -1,3 +1,5 @@
+import collections
+
 class Solution:
     def validTree(self, n: int, edges: List[List[int]]) -> bool:
         # Advanced Graph Theory O_n time and space
