@@ -5,10 +5,11 @@ class Solution:
         # s = s.replace(" ", "")
         st = []
         num, sign = 0, '+'
+        result = 0
         
         for i in range(len(s)):
             c = s[i]
-            # print(st,"b")
+
             if c.isdigit():
                 num = int(c) + 10 * num
             
@@ -18,14 +19,18 @@ class Solution:
                 elif sign == '-':
                     st.append(-num)
                 elif sign == '*':
-                    st.append(st.pop()*num)
+                    pre = st.pop() if st else 0
+                    result -= pre
+                    st.append(pre*num)
                 elif sign == '/':
-                    pre = st.pop()
+                    pre = st.pop() if st else 0
+                    result -= pre
                     if pre < 0:
                         st.append(-(abs(pre)//num))
                     else:
                         st.append(pre//num)
                 num, sign = 0, c
-            # print(st,"e")
-        return sum(st)
+                result += st[-1] if st else 0
+
+        return result
         
