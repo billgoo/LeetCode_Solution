@@ -73,15 +73,13 @@ class Solution:
                     valid += 1
             while right - left >= n_p:
                 if valid == n_chars:
-                    print(s[left:right])
                     res.append(left)
                 c_ = s[left]
                 left += 1
                 if c_ in need:
-                    window[c_] -= 1
                     if window[c_] == need[c_]:
                         valid -= 1
-            print(valid)
+                    window[c_] -= 1
         return res
 # @lc code=end
 

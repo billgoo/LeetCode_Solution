@@ -88,7 +88,6 @@ class Solution:
             while valid == n_chars:
                 if right - left < len(result):
                     result = s[left:right]
-                    print(result)
                 # 左移
                 c_ = s[left]    # 出窗口
                 left += 1
