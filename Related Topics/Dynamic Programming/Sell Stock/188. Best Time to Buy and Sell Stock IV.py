@@ -65,7 +65,12 @@ class Solution:
                 dp_1 = max(dp_1, temp - p)
             return dp_0
         else:
-            
-            return
+            dp_ik0 = [0 for _ in range(k + 1)]
+            dp_ik1 = [float('-inf') for _ in range(k + 1)]
+            for p in prices:
+                for k_ in range(k, 0, -1):
+                    dp_ik0[k_] = max(dp_ik0[k_], dp_ik1[k_] + p)
+                    dp_ik1[k_] = max(dp_ik1[k_], dp_ik0[k_ - 1] - p)
+            return dp_ik0[k]
 # @lc code=end
 
