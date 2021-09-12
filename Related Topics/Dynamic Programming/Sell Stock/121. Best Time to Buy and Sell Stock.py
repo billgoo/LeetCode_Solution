@@ -70,6 +70,24 @@ class Solution:
 
         # return dp[n - 1][0]
 
+        # # or standard with k
+        # n = len(prices)
+        # k = 2
+        # # init
+        # dp = [[[0 for i in range(2)] for j in range(k + 1)] for _ in range(n)]
+        # for i in range(n):
+        #     # dp[i][k][0] = dp[i][0][0] = 0
+        #     dp[i][k][1] = dp[i][0][1] = float('-inf')
+        # dp[0][k][1] = -prices[0]
+        # # dp loop
+        # for i in range(1, n):
+        #     for k_ in range(k, 0, -1):
+        #         dp[i][k_][0] = max(dp[i - 1][k_][0], dp[i - 1][k_][1] + prices[i])
+        #         dp[i][k_][1] = max(dp[i - 1][k_][1], dp[i - 1][k_ - 1][0] - prices[i])
+        #         print(dp[i][k_])
+
+        # return dp[n - 1][k][0]
+
         # simplify solution
         n = len(prices)
         dp_i_0, dp_i_1 = 0, -prices[0]
