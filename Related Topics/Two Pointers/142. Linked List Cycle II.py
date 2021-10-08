@@ -1,3 +1,4 @@
+# 142. Linked List Cycle II
 # Definition for singly-linked list.
 # class ListNode:
 #     def __init__(self, x):
@@ -8,23 +9,24 @@ class Solution:
     def detectCycle(self, head: ListNode) -> ListNode:
         if not head or not head.next:
             return None
-        
+
         slow = head
-        fast = head.next
-        
+        fast = head
+
         # find if we have cycle and get meet point
-        while slow != fast:
-            if not fast or not fast.next:
-                return None
+        while fast and fast.next:
             slow = slow.next
             fast = fast.next.next
-            
+            if slow == fast:
+                break
+
+        if not fast or not fast.next:
+            return None
+
         # slow from head and fast from meet point both at one step
         slow = head
-        fast = fast.next
         while slow != fast:
             slow = slow.next
             fast = fast.next
-            
+
         return slow
-        
