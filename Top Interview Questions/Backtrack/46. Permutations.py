@@ -9,7 +9,6 @@
 class Solution:
     def permute(self, nums: List[int]) -> List[List[int]]:
         self.res = []
-        self.track = []
         self.backtrack([], nums)
         return self.res
         
