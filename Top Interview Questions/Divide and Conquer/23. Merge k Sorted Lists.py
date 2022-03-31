@@ -15,14 +15,14 @@ class Solution:
             return None
         elif l == 1:
             return lists[0]
-        
+
         stack = [i for i in lists]
         while len(stack) > 1:
             left = stack.pop(0)
             right = stack.pop(0)
             stack.append(self.mergeList(left, right))
         return stack[0]
-            
+
     def mergeList(self, left, right):
         head = ListNode(-1)
         dummy = head
@@ -36,8 +36,8 @@ class Solution:
             dummy = dummy.next
         dummy.next = left if left else right
         return head.next
-                
-                
+
+
 # with Priority Queue
 # Java
 # /**
@@ -75,7 +75,6 @@ class Solution:
 #             // p 指针不断前进
 #             p = p.next;
 #         }
-#         return dummy.next; 
+#         return dummy.next;
 #     }
 # }
-        
