@@ -1,3 +1,4 @@
+# 5. Longest Palindromic Substring
 class Solution:
     def longestPalindrome(self, s: str) -> str:
         if not s:
@@ -14,15 +15,17 @@ class Solution:
 
         new_s = add_boundary(s)
         n = len(new_s)
-        p = [0 for _ in range(n)]
-        max_right, center = 0, 0
-        max_len, start = 1, 0
+        p = [0 for _ in range(n)]  # 回文半径，不包含中心点
+        curr_max_right = curr_center = 0, 0
+        res_start = 1, 0
+        # res_center = 0
+        res_len = 1
 
         for i in range(n):
-            if i < max_right:
-                mirror = 2 * center - i
+            if i < curr_max_right:
+                mirror = 2 * curr_center - i
                 # 算法核心步骤
-                p[i] = min(max_right - i, p[mirror])
+                p[i] = min(curr_max_right - i, p[mirror])
 
             # 以i为中心向左右扫描，其中中心旁边的p[i]个已经之前扫描过，所以跳过
             l, r = i - (p[i] + 1), i + (p[i] + 1)
@@ -31,12 +34,17 @@ class Solution:
                 r += 1
                 p[i] += 1
 
-            if i + p[i] > max_right:
-                max_right = i + p[i]
-                center = i
+            if p[i] > curr_max_right - i:
+                curr_center = i
+                curr_max_right = curr_center + p[i]
 
-            if max_len < p[i]:
-                max_len = p[i]
-                start = (i - max_len) // 2
+        #     if p[i] >= res_len:
+        #         res_len = p[i]
+        #         res_center = i
 
-        return s[start: start + max_len]
+        # return s[(res_center - res_len) // 2: (res_center + res_len) // 2]
+            if res_len < p[i]:
+                res_len = p[i]
+                res_start = (i - res_len) // 2
+
+        return s[res_start: res_start + res_len]
