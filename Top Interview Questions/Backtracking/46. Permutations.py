@@ -11,7 +11,7 @@ class Solution:
         self.res = []
         self.backtrack([], nums)
         return self.res
-        
+
     def backtrack(self, path: List[int], nums: List[int]) -> None:
         if len(nums) == 0:
             self.res.append(path[:])
@@ -41,6 +41,8 @@ class Solution:
 #         return self.res
 # @lc code=end
 # 2
+
+
 class Solution:
     def permute(self, nums: List[int]) -> List[List[int]]:
         def backtrack(first=0):
