@@ -1,6 +1,7 @@
 # 198. House Robber
 class Solution:
     def rob(self, nums: List[int]) -> int:
+        # 自底向上
         n = len(nums)
         if n == 0:
             return 0
@@ -34,3 +35,11 @@ class Solution:
             dp_0, dp_1 = dp_1, dp_2
 
         return dp_2
+
+        # 自顶向下
+        # dp_i = 0
+        # dp_1 = dp_2 = 0
+        # for i in range(n - 1, -1, -1):
+        #     dp_i = max(dp_1, nums[i] + dp_2)
+        #     dp_1, dp_2 = dp_i, dp_1
+        # return dp_i
