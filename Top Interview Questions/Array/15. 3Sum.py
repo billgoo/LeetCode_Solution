@@ -4,7 +4,7 @@ class Solution:
         # old
         # nums.sort()
         # re = []
-        
+
         # # O(n^2)
         # for i in range(len(nums) - 2):
         #     if nums[i] > 0:
@@ -25,13 +25,13 @@ class Solution:
         #             l -= 1
         #         elif s + e + nums[i] < 0:
         #             f += 1
-                    
+
         # return re
-        
+
         # new for respect to 2 sum
         res = []
         nums.sort()
-        
+
         n = len(nums)
         i = 0
         while i < n - 1:
@@ -43,7 +43,7 @@ class Solution:
                 i += 1
             i += 1
         return res
-        
+
     def twoSum(self, nums, l, r, target):
         res = []
         while l < r:
@@ -65,4 +65,3 @@ class Solution:
                 while l < r and nums[l] == left:
                     l += 1
         return res if len(res) > 0 else None
-        

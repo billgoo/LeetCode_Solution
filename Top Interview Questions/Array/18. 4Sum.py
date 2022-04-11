@@ -3,7 +3,7 @@ class Solution:
     def fourSum(self, nums: List[int], target: int) -> List[List[int]]:
         nums.sort()
         return self.nSum(nums, 4, 0, len(nums), target)
-        
+
     def nSum(self, nums, n, start, length, target):
         res = []
         if n < 2 or n > length:
