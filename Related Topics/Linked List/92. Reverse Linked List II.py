@@ -30,3 +30,21 @@ class Solution:
         else:
             prev_dummy.next = prev
         return head
+
+    # recursively O_n time and O_n space
+    # def reverseBetween(self, head: Optional[ListNode], left: int, right: int) -> Optional[ListNode]:
+    #     self.successor = None
+    #     if left == 1:
+    #         return self.reverseHeadN(head, right)
+    #     else:
+    #         head.next = self.reverseBetween(head.next, left - 1, right - 1)
+    #         return head
+
+    # def reverseHeadN(self, head: Optional[ListNode], right: int) -> Optional[ListNode]:
+    #     if right == 1:
+    #         self.successor = head.next
+    #         return head
+    #     last = self.reverseHeadN(head.next, right - 1)
+    #     head.next.next = head
+    #     head.next = self.successor
+    #     return last
